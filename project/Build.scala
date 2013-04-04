@@ -6,8 +6,7 @@ object BuildSettings {
     organization := "org.scalamacros",
     version := "1.0.0",
     scalacOptions ++= Seq("-deprecation"),
-    scalaVersion := "2.11.0-SNAPSHOT",
-    scalaOrganization := "org.scala-lang.macro-paradise",
+    scalaVersion := "2.10.1",
     resolvers += Resolver.sonatypeRepo("snapshots")
   )
 }
@@ -25,7 +24,7 @@ object MyBuild extends Build {
     "macros",
     file("macros"),
     settings = buildSettings ++ Seq(
-      libraryDependencies <+= (scalaVersion)("org.scala-lang.macro-paradise" % "scala-reflect" % _))
+      libraryDependencies <+= (scalaVersion)("org.scala-lang" % "scala-reflect" % _))
   )
 
   lazy val core: Project = Project(
